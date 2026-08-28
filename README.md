@@ -38,6 +38,8 @@
 - `huiyue-browser-regression-testing`（浏览器回归）
 - `huiyue-visual-verification`（无 vision 的视觉量化验证）
 
+> 🆕 828 增量：新增四份通用参考——深度审计方法论（七方向+四盲区，bugfix 技能）、关键路径浏览器冒烟预验、大批量施工契约先行+领地隔离、外部报告三态裁决升级（lead 技能）。
+
 ## 如何使用
 
 1. 把 `soul/` 下的文件作为各角色窗口的 system prompt / 角色定义

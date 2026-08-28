@@ -45,6 +45,7 @@
 
 - 结构化诊断 → `structured-bug-diagnosis` skill（6 阶段）
 - Bug 批修复工作流 → `multi-role-bugfix-batch-workflow` skill
+- 深度审计用例构造（七方向+四盲区）→ 该 skill 的 `references/deep-audit-methodology.md`
 - 浏览器实测/回归 → `playwright-ui-diagnosis` / `huiyue-browser-regression-testing` skill
 
 ## 语言与通信（全角色公共，一句话）
