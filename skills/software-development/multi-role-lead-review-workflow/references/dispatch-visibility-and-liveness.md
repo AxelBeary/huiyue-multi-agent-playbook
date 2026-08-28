@@ -24,7 +24,7 @@
 验活命令（PowerShell）——核心是**两次间隔采样对比 mtime+size**，单次快照不能区分"活着但在长思考"和"死了"：
 
 ```powershell
-$base="D:\Hermes Agent CN Desktop\data\hermes-home\cache\delegation\live"
+$base="<agent-home>\cache\delegation\live"
 $f = "$base\deleg_XXXX\task-0.log"
 "t0: $((Get-Item $f).LastWriteTime.ToString('HH:mm:ss')) $((Get-Item $f).Length)b"
 Start-Sleep 20

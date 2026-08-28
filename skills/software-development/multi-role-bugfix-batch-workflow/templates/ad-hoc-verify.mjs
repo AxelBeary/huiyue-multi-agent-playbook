@@ -16,7 +16,7 @@
 import { strict as assert } from 'node:assert'
 import { readFileSync } from 'node:fs'
 
-const BASE = 'D:/Hermes Agent CN Desktop/workspace/<project>-bugfix'
+const BASE = '<project-root>-bugfix'
 const read = (p) => readFileSync(`${BASE}/${p}`, 'utf8')
 
 // ─── Item X: <one-line description> ───

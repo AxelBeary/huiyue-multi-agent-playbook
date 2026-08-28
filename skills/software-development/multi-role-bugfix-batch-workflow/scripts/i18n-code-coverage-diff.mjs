@@ -4,7 +4,7 @@
 import { readFileSync } from 'fs'
 import { pathToFileURL } from 'url'
 
-const ROOT = 'D:/Hermes Agent CN Desktop/workspace/artist-commission' // ← 按实际仓库改（worktree 同理）
+const ROOT = '<project-root>' // ← 按实际仓库改（worktree 同理）
 
 // 1. 从 errors.ts 提取 E 对象全部错误码（形如 KEY: 'KEY'）
 const src = readFileSync(`${ROOT}/server/src/shared/errors.ts`, 'utf8')

@@ -310,7 +310,7 @@ cd "<worktree>/web"; npx vitest run 2>&1   # web/ has NO `npm run test` script �
 
 **Container-only scripts can't run locally — verify with `tsc --ignoreConfig`**: Scripts like `server/scripts/demo-data.ts` import container-absolute paths (`/app/server/src/db/connection.js`) so they only run inside the Docker container. Locally you can't execute them and they're excluded from the main tsconfig. To at least type-check the file's own logic: `cd server; npx tsc --noEmit --skipLibCheck --module ESNext --moduleResolution bundler --target ES2022 --ignoreConfig scripts/demo-data.ts`. **Expected noise**: TS2307 "Cannot find module '/app/...'" on every container import — that's LOCAL and benign. The file is clean if there are NO OTHER errors (no syntax/type errors in the new code). `--ignoreConfig` is REQUIRED or tsc errors TS5112 ("tsconfig.json is present but will not be loaded if files are specified"). Don't report the TS2307s as a failure; note in comms that runtime can only be verified in-container.
 
-**🔴 The `patch` tool's inline lint output is unreliable on Windows — trust only the project toolchain**: The `patch` tool runs its own linter and returns a `lint` field. On this Windows host it mangles paths (git-style `/d/Hermes...` → `D:\d\Hermes...` → spurious `MODULE_NOT_FOUND` / "not the tsc command you are looking for") even for perfectly valid edits. Treat the `lint` field as noise; the authoritative checks are the project's own `npx vitest run` / `npx tsc --noEmit` / `npx eslint .` run from `server/` or `web/`. Don't chase or "fix" the patch tool's lint errors.
+**🔴 The `patch` tool's inline lint output is unreliable on Windows — trust only the project toolchain**: The `patch` tool runs its own linter and returns a `lint` field. On this Windows host it mangles paths (git-style `/d/<workspace>` → `D:\d\<workspace>` → spurious `MODULE_NOT_FOUND` / "not the tsc command you are looking for") even for perfectly valid edits. Treat the `lint` field as noise; the authoritative checks are the project's own `npx vitest run` / `npx tsc --noEmit` / `npx eslint .` run from `server/` or `web/`. Don't chase or "fix" the patch tool's lint errors.
 
 All tests must pass. tsc must be zero errors. ESLint must be zero errors **AND zero warnings** (project hard rule: `npx eslint .` 零错误零警告). Common warning: unused variables in test files (`const body = res.json()` when only `res.statusCode` is checked) — remove them before commit.
 
@@ -410,7 +410,7 @@ Run: `node "C:\Users\<user>\AppData\Local\Temp\hermes-verify-<task>.mjs"` then `
 - **🔴 ESM absolute path → ERR_UNSUPPORTED_ESM_URL_SCHEME**: When the verification checker requires the script in %TEMP% (not project root), Windows absolute paths like `D:\...` are parsed as protocol `d:` and rejected. Fix: use `pathToFileURL(join(ROOT, 'server/src/...')).href` for all dynamic imports:
   ```js
   import { pathToFileURL } from 'url'
-  const ROOT = 'D:/Hermes Agent CN Desktop/workspace/artist-commission-wt03'
+  const ROOT = 'D:/path/to/worktree-wt03'
   const imp = (p) => import(pathToFileURL(join(ROOT, p)).href)
   const { E } = await imp('server/src/shared/errors.js')
   ```

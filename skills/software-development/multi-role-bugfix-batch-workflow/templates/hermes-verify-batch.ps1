@@ -2,7 +2,7 @@
 # Usage: pwsh -File <this-script>
 # Customize $root to the worktree path, then run. Delete after use.
 $ErrorActionPreference = 'Stop'
-$root = 'D:\Hermes Agent CN Desktop\workspace\artist-commission-bugfix'
+$root = '<project-root>-bugfix'
 $pass = 0; $fail = 0
 
 function Check($name, $cmd, $dir) {

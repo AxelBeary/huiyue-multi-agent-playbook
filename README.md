@@ -1,6 +1,6 @@
 # 绘约多智能体协作 Playbook（HuiYue Multi-Agent Playbook）
 
-> 一套**经过实战检验的 AI 多角色协作方法论**，来自「绘约」画师约稿管理平台（Brushline-HuiYue）的真实开发过程。
+> 一套**经过实战检验的 AI 多角色协作方法论**，来自「绘约」画师约稿管理平台（Inkglean）的真实开发过程。
 
 在真实项目中，我们让 5 个 AI 角色（主理人/前端/后端/需求/Bug修复）像一支小团队一样协同开发。这套方法解决的核心问题是：**如何让多个 AI 长期协作一个不断演进的代码库，而不失控、不产生屎山、不互相覆盖。**
 
@@ -41,10 +41,16 @@
 ## 如何使用
 
 1. 把 `soul/` 下的文件作为各角色窗口的 system prompt / 角色定义
-2. 把 `skills/` 导入你的 agent 技能库（Hermes: `hermes skills install` 或放入 skills 目录）
+2. 把 `skills/` 导入你的 agent 平台技能库（任何支持 SKILL.md 约定的平台）
 3. 按 soul 里的协作接口运转：一号门禁审核、角色独立 worktree、comms 文件流转
 
-> ⚠️ 这是方法论仓库，不含「绘约」平台任何业务代码。业务代码在 [Brushline-HuiYue](https://github.com/AxelBeary/Brushline-HuiYue)（GPL-3.0）。
+> ⚠️ 部分文件引用了本仓库未收录的配套技能（`readonly-code-audit`、`structured-bug-diagnosis`、`requirements-grilling`、`playwright-ui-diagnosis`、`multi-agent-collaboration-setup`），请用自己环境中的等价能力替代。
+
+> ⚠️ 这是方法论仓库，不含「绘约」平台任何业务代码。业务代码在 [Inkglean](https://github.com/AxelBeary/Inkglean)（AGPL-3.0）。
+
+## 脱敏声明
+
+本仓库公开前已完整脱敏：不含真实 IP、域名、密钥、账号或本机路径；示例中的 QQ 号（如 `10001`）与 TOTP 密钥均为测试值（后者为 RFC 6238 官方示例向量）。
 
 ## 协议
 

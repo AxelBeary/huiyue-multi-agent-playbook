@@ -1,4 +1,4 @@
-# Multi-Agent Collaboration Rules (绘约 / Brushline-HuiYue)
+# Multi-Agent Collaboration Rules (绘约 / Inkglean)
 
 Established 2026-07-29. Canonical source: `docs/soul/soul-*.md` (5 files) in the project repo.
 Supplementary: `docs/协作规则.md`, `docs/templates/submit-*.md`.
@@ -126,7 +126,7 @@ The full cycle from task book to merge-ready branch, refined over 5+ batches (P0
 
 ### 1. Worktree Setup
 ```powershell
-cd "D:\Hermes Agent CN Desktop\workspace\artist-commission"
+cd "<project-root>"
 git pull origin master
 git worktree add ../artist-commission-bugfix -b fix/bug-<batch> master
 cd ../artist-commission-bugfix

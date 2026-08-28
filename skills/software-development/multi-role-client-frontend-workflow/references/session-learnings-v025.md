@@ -26,7 +26,7 @@ cd web && npm install
 patch 工具的自动 lint 检查在 Windows 上会因路径拼接错误产生误报：
 
 ```
-Error: Cannot find module 'D:\d\Hermes Agent CN Desktop\...'
+Error: Cannot find module 'D:\d\<workspace>\...'
 ```
 
 注意 `D:\d\` — 工具把 `/d/` 前缀错误拼接到盘符上。**这不是真实语法错误**。以 `npx eslint .` 和 `npm run build` 的实际结果为准。

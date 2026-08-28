@@ -14,7 +14,7 @@
 
 角色已基于 master 切出 worktree 开工后，一号在 master 上 patch 派工文件追加任务条目——**角色看不到**。worktree 分支基于旧 master，文件还是初始版；角色按旧版交付，追加条目全部漏做（v0.35 波 1 实例：追加的 5 条全漏，交付后审核才发现）。**规则**：派工文件 push 之后，任何追加条目都不能只靠"改文件等他下次读"——要么让用户转达一句"派工已更新，先 `git merge master` 再开工"，要么把追加内容以聊天内联发给用户转达，二选一必须做到。审核时若发现角色漏做追加条目：不追责（信息没送达不是角色的错），直接补派工文件并明确要求先同步 master。
 
-工作目录：`D:\Hermes Agent CN Desktop\workspace\artist-commission`。主 worktree 永远停 master，只有一号操作。
+工作目录：`<项目根目录>`。主 worktree 永远停 master，只有一号操作。
 
 ## 0a. 数据丢失紧急恢复流程（迁移/误操作清空数据时，2026-08-04 实战）
 
@@ -46,7 +46,7 @@ STATUS.md 经多轮 patch 追加后结构散乱，收口需全量重写。**用 
 ## 1. 开场分诊
 
 ```powershell
-cd "D:\Hermes Agent CN Desktop\workspace\artist-commission"
+cd "<project-root>"
 git status --short
 git branch --show-current
 git log --oneline -5
@@ -209,7 +209,7 @@ cmd.exe /c "docker compose up -d 2>&1" | Select-Object -Last 5
 新版本开工时分支尚不存在，`git worktree add <path> <branch>` 会报 `fatal: invalid reference`。必须用 `-b` 创建分支：
 
 ```powershell
-cd "D:\Hermes Agent CN Desktop\workspace\artist-commission"
+cd "<project-root>"
 
 # 确认主 worktree 在 master 且干净
 git branch --show-current   # 必须是 master

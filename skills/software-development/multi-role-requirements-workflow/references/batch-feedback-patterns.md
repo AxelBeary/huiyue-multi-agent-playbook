@@ -15,7 +15,7 @@
 
 **context 模板**：
 ```
-项目路径：D:\Hermes Agent CN Desktop\workspace\artist-commission。
+项目路径：<项目根目录>。
 Vue3 + Element Plus 前端在 web/src/，Fastify 后端在 server/src/。用中文回复。
 ```
 

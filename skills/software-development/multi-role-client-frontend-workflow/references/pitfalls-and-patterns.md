@@ -54,7 +54,7 @@
 ## 7. write_file/patch 的 lint 误报（D:\d\ 前缀）
 
 对 .js 文件编辑触发 `node --check` 时可能出现
-`Cannot find module 'D:\d\Hermes...'`（路径前缀被错误拼接为 `D:\d\`）。
+`Cannot find module 'D:\d\<workspace>...'`（路径前缀被错误拼接为 `D:\d\`）。
 这是沙箱路径解析 bug，**不是真实语法错误**。看到 `D:\d\` 前缀直接忽略，
 以 ESLint / build 的实际运行结果为准。
 
